@@ -1,8 +1,12 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig, importProvidersFrom, isDevMode } from '@angular/core';
+import { RouterModule, withRouterConfig } from '@angular/router';
 
-import { routes } from './app.routes';
+import { TEST_MIFE_ROUTES } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
+  providers: [
+    importProvidersFrom(
+      RouterModule.forRoot(TEST_MIFE_ROUTES)
+    )
+  ],
 };
